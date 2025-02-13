@@ -71,7 +71,11 @@ main{
       vertical-align: middle;
       padding: .75rem;
 
-      &:hover, &:focus{
+      &:hover{
+        border-color: var(--purple);
+      }
+      
+      &:focus{
         outline: none;
         border-color: var(--smokey-grey);
       }
@@ -98,9 +102,9 @@ main{
     cursor: pointer;
     padding: 1rem;
 
-    transition: scale .3s ease-in-out;
+    transition: background-color .3s ease-in-out;
     &:hover{
-      scale: 1.1;
+      background-color: var(--off-black);
     }
 
     &:focus{
@@ -126,6 +130,43 @@ main{
 
     & > span{
       color: var(--purple);
+    }
+  }
+}
+
+@media screen and (width >= 1024px) {
+  main{
+    width: 31rem;
+    padding: 2.5rem 2.25rem;
+  }
+
+  .input-wrapper{
+    justify-content: flex-start;
+    gap: 1.25rem;
+  }
+
+  .submit-wrapper{
+    margin-block: 0;
+
+    & > .line{
+      flex-grow: 1;
+    }
+
+    & > button[type="submit"]{
+      & > img{
+        width: 1.75rem;
+        height: 1.75rem;
+      }
+    }
+
+    & > .mobile-only{
+      display: none;
+    }
+  }
+
+  .calculations{
+    & > li{
+      font-size: 3.75rem;
     }
   }
 }
