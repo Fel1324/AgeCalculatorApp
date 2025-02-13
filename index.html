@@ -16,25 +16,25 @@
         <form>
           <div class="input-wrapper">
             <div class="input-group">
-              <label for="day">Dia</label>
-              <input type="number" name="day" id="day" placeholder="DD">
+              <label for="day">Day</label>
+              <input type="text" name="day" id="day" placeholder="DD" minlength="1" maxlength="2">
             </div>
 
             <div class="input-group">
-              <label for="month">Mês</label>
-              <input type="number" name="month" id="month" placeholder="MM">
+              <label for="month">Month</label>
+              <input type="text" name="month" id="month" placeholder="MM" minlength="1" maxlength="2">
             </div>
 
             <div class="input-group">
-              <label for="year">Ano</label>
-              <input type="number" name="year" id="year" placeholder="AAAA">
+              <label for="year">Year</label>
+              <input type="text" name="year" id="year" placeholder="YYYY" minlength="4" maxlength="4">
             </div>
           </div>
 
           <div class="submit-wrapper">
             <div class="line"></div>
 
-            <button type="submit" aria-label="Calcular idade">
+            <button type="submit" aria-label="Calcular idade" title="Calcular idade">
               <img src="./assets/images/icon-arrow.svg" alt="">
             </button>
 
@@ -46,36 +46,23 @@
       <div class="bottom">
         <ul role="list" class="calculations">
           <li>
-            <span id="displayYear">---</span>
-            Ano
+            <span id="displayYear">--</span>
+            years
           </li>
 
           <li>
-            <span id="displayMonth">---</span>
-            Mês
+            <span id="displayMonth">--</span>
+            months
           </li>
 
           <li>
-            <span id="displayDay">---</span>
-            Dia
+            <span id="displayDay">--</span>
+            days
           </li>
         </ul>
       </div>
     </main>
-    
-    <!-- Day
-    DD
-
-    Month
-    MM
-
-    Year
-    YYYY
-
-    -- years
-    -- months
-    -- days -->
-
+  
     <script src="./script.js"></script>
   </body>
 </html>

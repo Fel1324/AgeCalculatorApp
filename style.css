@@ -35,7 +35,97 @@ body{
 
 main{
   background-color: var(--white);
-  border-radius: 1rem;
+  border-radius: 1rem 1rem 6.5rem 1rem;
 
-  padding: 1.25rem;
+  width: fit-content;
+  padding: 2rem 1.25rem;
+}
+
+.input-wrapper{
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+
+  & .input-group{
+    display: flex;
+    flex-direction: column;
+    gap: .25rem;
+
+    & > label{
+      color: var(--smokey-grey);
+      font-weight: 700;
+      font-size: .75rem;
+      text-transform: uppercase;
+      letter-spacing: .1875rem;
+    }
+
+    & > input[type="text"]{
+      border-radius: .625rem;
+      border: .0625rem solid var(--light-grey);
+      color: var(--off-black);
+      width: 5rem;
+      height: 3rem;
+
+      font-size: 1.25rem;
+      font-weight: 700;
+      vertical-align: middle;
+      padding: .75rem;
+
+      &:hover, &:focus{
+        outline: none;
+        border-color: var(--smokey-grey);
+      }
+    }
+  }
+}
+
+.submit-wrapper{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-block: 2rem;
+
+  & > .line{
+    width: 50%;
+    height: .0625rem;
+    background-color: var(--light-grey);
+  }
+
+  & > button[type="submit"]{
+    border: none;
+    border-radius: 50%;
+    background-color: var(--purple);
+    cursor: pointer;
+    padding: 1rem;
+
+    transition: scale .3s ease-in-out;
+    &:hover{
+      scale: 1.1;
+    }
+
+    &:focus{
+      outline-color: var(--off-black);
+    }
+
+    & > img{
+      width: 1.25rem;
+      height: 1.25rem;
+      object-fit: cover;
+      vertical-align: top;
+    }
+  }
+}
+
+.calculations{
+  & > li{
+    font-size: 3rem;
+    font-weight: 700;
+    line-height: 1.25;
+    font-style: italic;
+    color: var(--off-black);
+
+    & > span{
+      color: var(--purple);
+    }
+  }
 }
