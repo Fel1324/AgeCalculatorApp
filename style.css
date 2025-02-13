@@ -1,0 +1,41 @@
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  list-style-type: none;
+}
+
+:root{
+  --purple: hsl(259, 100%, 65%);
+  --light-red: hsl(0, 100%, 67%);
+  --white: hsl(0, 0%, 100%);
+  --off-white: hsl(0, 0%, 94%);
+  --light-grey: hsl(0, 0%, 86%);
+  --smokey-grey: hsl(0, 1%, 44%);
+  --off-black: hsl(0, 0%, 8%);
+
+  --font: "Poppins", sans-serif;
+}
+
+html, body{
+  width: 100%;
+  min-height: 100vh;
+  height: auto;
+
+  background-color: var(--light-grey);
+  color: var(--off-black);
+  font-family: var(--font);
+}
+
+body{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+main{
+  background-color: var(--white);
+  border-radius: 1rem;
+
+  padding: 1.25rem;
+}

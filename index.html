@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" sizes="32x32" href="./assets/images/favicon-32x32.png">
+    <title>Frontend Mentor | Age calculator app</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./style.css">
+  </head>
+  <body>
+    <main>
+      <div class="top">
+        <form>
+          <div class="input-wrapper">
+            <div class="input-group">
+              <label for="day">Dia</label>
+              <input type="number" name="day" id="day" placeholder="DD">
+            </div>
+
+            <div class="input-group">
+              <label for="month">Mês</label>
+              <input type="number" name="month" id="month" placeholder="MM">
+            </div>
+
+            <div class="input-group">
+              <label for="year">Ano</label>
+              <input type="number" name="year" id="year" placeholder="AAAA">
+            </div>
+          </div>
+
+          <div class="submit-wrapper">
+            <div class="line"></div>
+
+            <button type="submit" aria-label="Calcular idade">
+              <img src="./assets/images/icon-arrow.svg" alt="">
+            </button>
+
+            <div class="line mobile-only"></div>
+          </div>
+        </form>
+      </div>
+
+      <div class="bottom">
+        <ul role="list" class="calculations">
+          <li>
+            <span id="displayYear">---</span>
+            Ano
+          </li>
+
+          <li>
+            <span id="displayMonth">---</span>
+            Mês
+          </li>
+
+          <li>
+            <span id="displayDay">---</span>
+            Dia
+          </li>
+        </ul>
+      </div>
+    </main>
+    
+    <!-- Day
+    DD
+
+    Month
+    MM
+
+    Year
+    YYYY
+
+    -- years
+    -- months
+    -- days -->
+
+    <script src="./script.js"></script>
+  </body>
+</html>
