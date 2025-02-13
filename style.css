@@ -46,7 +46,7 @@ main{
   justify-content: center;
   gap: 1rem;
 
-  & .input-group{
+  & > .input-group{
     display: flex;
     flex-direction: column;
     gap: .25rem;
@@ -57,6 +57,10 @@ main{
       font-size: .75rem;
       text-transform: uppercase;
       letter-spacing: .1875rem;
+
+      &.error-label{
+        color: var(--light-red);
+      }
     }
 
     & > input[type="text"]{
@@ -71,6 +75,10 @@ main{
       vertical-align: middle;
       padding: .75rem;
 
+      &.input-error{
+        border-color: var(--light-red);
+      }
+
       &:hover{
         border-color: var(--purple);
       }
@@ -78,6 +86,17 @@ main{
       &:focus{
         outline: none;
         border-color: var(--smokey-grey);
+      }
+    }
+
+    #error{
+      color: var(--light-red);
+      font-size: .625rem;
+      font-style: italic;
+      display: none;
+
+      &.show-error{
+        display: block;
       }
     }
   }
@@ -136,13 +155,19 @@ main{
 
 @media screen and (width >= 1024px) {
   main{
-    width: 31rem;
+    width: 32.5rem;
     padding: 2.5rem 2.25rem;
   }
 
   .input-wrapper{
     justify-content: flex-start;
     gap: 1.25rem;
+
+    & > .input-group{
+      & > input[type="text"]{
+        width: 6.25rem;
+      }
+    }
   }
 
   .submit-wrapper{
