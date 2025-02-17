@@ -28,6 +28,7 @@ class Day {
 
       errorMessages[0].classList.add("show-error");
       errorMessages[0].textContent = error;
+      dayEl.focus();
 
       throw new Error(error);
 
@@ -64,6 +65,7 @@ class Month {
 
       errorMessages[1].classList.add("show-error");
       errorMessages[1].textContent = error;
+      monthEl.focus();
 
       throw new Error(error);
 
@@ -100,6 +102,7 @@ class Year {
 
       errorMessages[2].classList.add("show-error");
       errorMessages[2].textContent = error;
+      yearEl.focus();
 
       throw new Error(error);
 
@@ -189,9 +192,11 @@ class AgeCalculator {
       }
 
       this.showAge(years, months, days);
+
       dayEl.value = "";
       monthEl.value = "";
       yearEl.value = "";
+      dayEl.focus();
 
     } catch (error) {
       console.error(error);
@@ -241,6 +246,4 @@ form.addEventListener("submit", (event) => {
 
   const ageCalculator = new AgeCalculator(dayEl.value, monthEl.value, yearEl.value);
   ageCalculator.calculateAge();
-
-  dayEl.focus();
 });
