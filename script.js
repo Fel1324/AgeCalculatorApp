@@ -139,29 +139,7 @@ class AgeCalculator {
       const yyyy = new Year(this.year);
       const myDate = new Date(yyyy.year, mm.month - 1, dd.day);
 
-      const validate = () => {
-        if(myDate > currentDate){
-          return "data inválida";
-
-        } else if(Number(mm.month) === 4 || Number(mm.month) === 6 || Number(mm.month) === 9 || Number(mm.month) === 11){
-          if(dd.day > 30){
-            return "data inválida"
-          }
-          
-        } else if(yyyy.year % 4 === 0 || yyyy.year % 100 === 0 || yyyy.year % 400 === 0){
-          if(Number(mm.month) === 2){
-            if(dd.day > 29){
-              return "data inválida"
-            }
-          }
-
-        } else if(Number(mm.month) === 2){
-          if(dd.day > 28){
-            return "data inválida"
-          }
-        }
-      }
-      const error = validate();
+      const error = this.validate(myDate, yyyy, mm, dd);
       if(error){
         labels.forEach((label) => {
           label.classList.add("label-error");
@@ -170,7 +148,6 @@ class AgeCalculator {
         [dayEl, monthEl, yearEl].forEach((date) => {
           date.classList.add("input-error");
         });
-        dayEl.focus();
 
         errorMessages[0].classList.add("show-error");
         errorMessages[0].textContent = error;
@@ -212,42 +189,50 @@ class AgeCalculator {
       }
 
       this.showAge(years, months, days);
+      dayEl.value = "";
+      monthEl.value = "";
+      yearEl.value = "";
 
     } catch (error) {
       console.error(error);
     }
   }
 
+  validate(date, y, m, d){
+    if(date > currentDate){
+      return "data inválida";
+
+    } else if(Number(m.month) === 4 || Number(m.month) === 6 || Number(m.month) === 9 || Number(m.month) === 11){
+      if(d.day > 30){
+        return "data inválida"
+      }
+      
+    } else if(y.year % 4 === 0 || y.year % 100 === 0 || y.year % 400 === 0){
+      if(Number(m.month) === 2){
+        if(d.day > 29){
+          return "data inválida"
+        }
+      }
+
+    } else if(Number(m.month) === 2){
+      if(d.day > 28){
+        return "data inválida"
+      }
+    }
+  }
+
   showAge(y, m, d){
     displayYear.innerHTML = `
-      <span>${y}</span> anos
+      <span>${y}</span> ${y === 1 ? "ano" : "anos"}
     `;
 
     displayMonth.innerHTML = `
-      <span>${m}</span> meses
+      <span>${m}</span> ${m === 1 ? "mês" : "meses"}
     `;
 
     displayDay.innerHTML = `
-      <span>${d}</span> dias
+      <span>${d}</span> ${d === 1 ? "dia" : "dias"}
     `;
-
-    if(y === 1){
-      displayYear.innerHTML = `
-        <span>${y}</span> ano 
-      `;
-    }
-
-    if(m === 1){
-      displayMonth.innerHTML = `
-        <span>${m}</span> mês
-      `;
-    }
-
-    if(d === 1){
-      displayDay.innerHTML = `
-        <span>${d}</span> dia
-      `;
-    }
   }
 }
 
@@ -256,10 +241,6 @@ form.addEventListener("submit", (event) => {
 
   const ageCalculator = new AgeCalculator(dayEl.value, monthEl.value, yearEl.value);
   ageCalculator.calculateAge();
-
-  dayEl.value = "";
-  monthEl.value = "";
-  yearEl.value = "";
 
   dayEl.focus();
 });
