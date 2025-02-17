@@ -1,10 +1,15 @@
 const currentDate = new Date();
+
 const form = document.querySelector("form");
 const dayEl = document.querySelector("#day");
 const monthEl = document.querySelector("#month");
 const yearEl = document.querySelector("#year");
 const labels = document.querySelectorAll(".input-group > label");
 const errorMessages = document.querySelectorAll("#error");
+
+const displayYear = document.querySelector("#displayYear");
+const displayMonth = document.querySelector("#displayMonth");
+const displayDay = document.querySelector("#displayDay");
 
 [dayEl, monthEl, yearEl].forEach((date) => {
   date.addEventListener("input", () => {
@@ -149,16 +154,14 @@ class AgeCalculator {
               return "data inválida"
             }
           }
-          
+
         } else if(Number(mm.month) === 2){
           if(dd.day > 28){
             return "data inválida"
           }
-
         }
       }
       const error = validate();
-      
       if(error){
         labels.forEach((label) => {
           label.classList.add("label-error");
@@ -171,6 +174,8 @@ class AgeCalculator {
 
         errorMessages[0].classList.add("show-error");
         errorMessages[0].textContent = error;
+
+        this.showAge("--", "--", "--");
 
         throw new Error(error);
 
@@ -186,14 +191,62 @@ class AgeCalculator {
         errorMessages[0].classList.remove("show-error");
       }
 
-      console.log(
-        myDate.getDate(),
-        myDate.getMonth(),
-        myDate.getFullYear(),
-      );
+      let years = currentDate.getFullYear() - myDate.getFullYear();
+      let months = currentDate.getMonth() - myDate.getMonth();
+      let days = currentDate.getDate() - myDate.getDate();
+
+      if(months < 0){
+        years--;
+        months = months + 12;
+      }
+
+      if(days < 0){
+        const lastDayPreviousMonth = new Date(currentDate.getFullYear(), currentDate.getMonth(), 0).getDate();
+        days = days + lastDayPreviousMonth;
+        months--;
+
+        if(months < 0){
+          years--;
+          months = months + 12;
+        }
+      }
+
+      this.showAge(years, months, days);
 
     } catch (error) {
       console.error(error);
+    }
+  }
+
+  showAge(y, m, d){
+    displayYear.innerHTML = `
+      <span>${y}</span> anos
+    `;
+
+    displayMonth.innerHTML = `
+      <span>${m}</span> meses
+    `;
+
+    displayDay.innerHTML = `
+      <span>${d}</span> dias
+    `;
+
+    if(y === 1){
+      displayYear.innerHTML = `
+        <span>${y}</span> ano 
+      `;
+    }
+
+    if(m === 1){
+      displayMonth.innerHTML = `
+        <span>${m}</span> mês
+      `;
+    }
+
+    if(d === 1){
+      displayDay.innerHTML = `
+        <span>${d}</span> dia
+      `;
     }
   }
 }
@@ -203,4 +256,10 @@ form.addEventListener("submit", (event) => {
 
   const ageCalculator = new AgeCalculator(dayEl.value, monthEl.value, yearEl.value);
   ageCalculator.calculateAge();
+
+  dayEl.value = "";
+  monthEl.value = "";
+  yearEl.value = "";
+
+  dayEl.focus();
 });
