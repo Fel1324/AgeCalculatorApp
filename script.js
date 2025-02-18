@@ -48,7 +48,6 @@ class Day {
       return "o campo não pode estar vazio";
 
     } else if(this._day < 1 || this._day > 31){
-      dayEl.focus();
       return "dia inválido";
     }
   }
@@ -85,7 +84,6 @@ class Month {
       return "o campo não pode estar vazio";
 
     } else if(this._month < 1 || this._month > 12){
-      monthEl.focus();
       return "mês inválido";
     }
   }
@@ -122,7 +120,6 @@ class Year {
       return "o campo não pode estar vazio";
 
     } else if(String(this._year).length < 4 || String(this._year).length > 4 || this._year > currentDate.getFullYear()){
-      yearEl.focus();
       return "ano inválido";
     }
   }
