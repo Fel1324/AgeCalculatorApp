@@ -46,9 +46,9 @@ Acesse o projeto clicando [aqui](https://fel1324.github.io/AgeCalculatorApp/)
 <h2 id="func">⚙️ Funcionalidades do projeto</h2>
 
 <ul>
-  <li>Exibe quantos anos o usuário possui a partir da data informada</li>
-  <li>Exibe quantos meses o usuário possui a partir da data informada</li>
-  <li>Exibe quantos dias o usuário possui a partir da data informada</li>
+  <li>Calcula e exibe quantos anos o usuário possui, com base na data informada.</li>
+  <li>Calcula e exibe quantos meses o usuário possui.</li>
+  <li>Calcula e exibe quantos dias o usuário possui.</li>
 </ul>
 
 <br>
